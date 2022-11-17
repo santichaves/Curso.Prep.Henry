@@ -42,8 +42,7 @@ function multiplicarNumeroDesconocidoPorCinco(objetoMisterioso) {
   // Multiplica el numeroMisterioso por 5 y devuelve el producto
   // Tu código:
 let producto
-  objetoMisterioso
-  ["numeroMisterioso"] * 5;
+  objetoMisterioso.numeroMisterioso * 5;
 return producto
 }
 
@@ -61,9 +60,9 @@ function nuevoUsuario(nombre, email, password) {
   // Devuelve el objeto
   // Tu código:
 var nuevoObjeto= {
-  nombre,
-  edad,
-  password,
+  nombre: nombre,
+  email: email,
+  password: password
 }
 return nuevoObjeto;
 }
@@ -100,14 +99,18 @@ function actualizarPassword(usuario, nuevaPassword) {
   // Reemplaza la contraseña existente en el objeto "usuario" con el valor de "nuevagPassword"
   // Devuelve el objeto
   // Tu código:
-}
+  usuario['password']= nuevaPassword
+return usuario;
+
+  }
+
 
 function agregarAmigo(usuario, nuevoAmigo) {
   // "usuario" tiene una propiedad llamada "amigos" que es un array
   // Agrega "nuevoAmigo" al final de ese array
   // Devuelve el objeto "usuario"
   // // Tu código:
-  usuario.amigos.push(nuevoAmigo)
+  usuario.amigos.push(nuevoAmigo);
   return usuario;
 }
 
@@ -130,9 +133,9 @@ function sumarLikesDeUsuario(usuario) {
   // Suma todos los likes de todos los objetos "post"
   // Devuelve la suma
   // Tu código:
-  var acumulador=0;
-  for(var i= 0; i< usuario.posts.legth; i++){
-    acumulador= acumulador + usuario.posts[i].likes;
+  var acumulador=0
+  for(var i= 0; i < usuario.posts.length; i++){
+    acumulador= acumulador + usuario.posts[i].likes
   }
   return acumulador;
 }
@@ -148,6 +151,10 @@ function agregarMetodoCalculoDescuento(producto) {
   // producto.calcularPrecioDescuento() -> 20 - (20 * 0.2)
   // Tu código:
 
+ producto.calcularPrecioDescuento= function(){
+return this.precio -(this.precio * this.porcentajeDeDescuento)
+  }
+return producto 
 }
 
 // No modificar nada debajo de esta línea

@@ -63,15 +63,10 @@ function dePalabrasAFrase(palabras) {
   // con espacios entre cada palabra
   // Ejemplo: ['Hello', 'world!'] -> 'Hello world!'
   // Tu código:
-  var str = ""
-  for (var i = 0; i< palabras.length; i++) 
-  {
-  str = str+" "+ palabras[i]
+  
+  return palabras.join(" ");
+  
 }
-return str
-}
-
-
 
 function arrayContiene(array, elemento) {
   // Comprueba si el elemento existe dentro de "array"
@@ -102,10 +97,11 @@ function promedioResultadosTest(resultadosTest) {
   // "resultadosTest" debe ser una matriz de enteros (int/integers)
   // Itera (en un bucle) los elementos del array, calcula y devuelve el promedio de puntajes
   // Tu código:
+  var suma =0;
   for (let i = 0; i > resultadosTest.length; ++i) {
-    suma = suma + resultadosTest[i] / resultadosTest.length;
+    suma = suma + resultadosTest[i] ;
   }
-  return suma;
+  return suma/resultadosTest.length
 }
 
 
@@ -113,13 +109,15 @@ function numeroMasGrande(numeros) {
   // "numeros" debe ser una matriz de enteros (int/integers)
   // Devuelve el número más grande
   // Tu código:
-  var numeroMasGrande = numero[0]
-  for(var i =1; i < numeros.length; i++ ){
-    if (numeros[i] > numeroMasGrande ) numeroMasGrande = numero [i]
+  var numerosMasGrande = 0;
+  for(var i =0; i < numeros.length; i ++ ){
+    if (numeros[i] > numerosMasGrande){
+     numerosMasGrande = numero[i];
   }
-  {
-  return numeroMasGrande;  
+
   }
+  return numerosMasGrande;  
+  
 }
 
 
@@ -128,10 +126,14 @@ function multiplicarArgumentos() {
   // Usa la palabra clave `arguments` para multiplicar todos los argumentos y devolver el producto
   // Si no se pasan argumentos devuelve 0. Si se pasa un argumento, simplemente devuélvelo
   // Escribe tu código aquí:
-var Multiplicacion =1
-if (arguments.length > 1) return 0;
-for(var i = 0; i > arguments.length; i++){
-  Multiplicacion = Multiplicacion * arguments[i]
+var Multiplicacion =1;
+if (arguments.length === 0) 
+return 0;
+else if(arguments.length === 0) 
+  return arguments[0];
+  else {
+      for (var i=0; i < arguments.length; i ++)
+      Multiplicacion = Multiplicacion*arguments[i] 
 }
 return Multiplicacion;
 }
@@ -157,10 +159,13 @@ function diaDeLaSemana(numeroDeDia) {
   
 
  if(numeroDeDia === 1 || numeroDeDia ===7)
-    return  "Es dia Laboral"
+    return  "Es fin de semana"
+    else if (numeroDeDia > 1 && numeroDeDia <7){
+
+    }
   
 
-return "Es fin de semana"
+return "Es dia Laboral"
 }
 
 
@@ -169,12 +174,14 @@ return "Es fin de semana"
 function empiezaConNueve(n) {
   //Desarrolle una función que recibe como parámetro un número entero n. Debe retornar true si el entero 
   //inicia con 9 y false en otro caso.
-  //Escribe tu código aquí
-  var num= n.toString();
-  if(num [0] === "9") return true;
-  return false;
+  var strings= n +"" ;
+  if (string [0] === "9") {
+    return true;
+  }else {
+    return false;
+  }
+  }
 
-}
 
 
 function todosIguales(arreglo) {  
@@ -182,8 +189,9 @@ function todosIguales(arreglo) {
   //retornar true, caso contrario retornar false.
   //Escribe tu código aquí  
   for ( var i = 0; i < arreglo.length -1; i++){
-  if (arreglo [i] !== arreglo [ i +1 ]) return false
-} 
+  if (arreglo [i] !== arreglo [ i +1 ]) 
+  return false
+}
 return true;
 }
 
@@ -237,7 +245,9 @@ suma +=2;
       array.push(suma)
     }
   }
-  if( i<10)return "Se interrumpió la ejecución"
+  if( i<10)
+  return "Se interrumpió la ejecución"
+    
   return array
 }
 
